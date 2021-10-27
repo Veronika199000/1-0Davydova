@@ -1,0 +1,10 @@
+library(dplyr)
+
+
+data = read_csv(file = "greendb.csv")
+
+data = data %>% filter(species_ru == "Дуб черешчатый")
+model = lm(d_trunk_m ~ adm_region, data)
+
+anova(model)
+# value 30, это больше 1 значит район влияет на средний диаметр
